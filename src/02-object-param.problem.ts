@@ -1,6 +1,20 @@
 import { expect, it } from "vitest";
 
-export const addTwoNumbers = (params) => {
+/* Problem
+  export const addTwoNumbers = (params) => {
+    return params.first + params.second;
+  };
+*/
+
+// My solution
+// I created an Type called 'TParams' with the correct properties to the 'params' parameter.
+
+type TParams = {
+  first: number,
+  second: number
+}
+
+export const addTwoNumbers = (params: TParams) => {
   return params.first + params.second;
 };
 

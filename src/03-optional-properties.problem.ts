@@ -1,6 +1,23 @@
 import { expect, it } from "vitest";
 
-export const getName = (params: { first: string; last: string }) => {
+/* Problem
+  export const getName = (params: { first: string; last: string }) => {
+    if (params.last) {
+      return `${params.first} ${params.last}`;
+    }
+    return params.first;
+  };
+*/
+
+// My solution
+// I inserted a '?' to make the property optional.
+
+type TParams = {
+  first: string,
+  last?: string
+}
+
+export const getName = (params: TParams) => {
   if (params.last) {
     return `${params.first} ${params.last}`;
   }
@@ -9,17 +26,17 @@ export const getName = (params: { first: string; last: string }) => {
 
 it("Should work with just the first name", () => {
   const name = getName({
-    first: "Matt",
+    first: "Guilherme",
   });
 
-  expect(name).toEqual("Matt");
+  expect(name).toEqual("Guilherme");
 });
 
 it("Should work with the first and last name", () => {
   const name = getName({
-    first: "Matt",
-    last: "Pocock",
+    first: "Guilherme",
+    last: "Fontebasso",
   });
 
-  expect(name).toEqual("Matt Pocock");
+  expect(name).toEqual("Guilherme Fontebasso");
 });

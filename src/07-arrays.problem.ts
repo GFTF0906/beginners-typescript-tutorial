@@ -1,9 +1,22 @@
+/* Problem
+  interface User {
+    id: number;
+    firstName: string;
+    lastName: string;
+    role: "admin" | "user" | "super-admin";
+    posts: Post;
+  }
+*/
+
+// My solution
+// Added a '[]' after 'Post' type, so it can be an array.
+
 interface User {
   id: number;
   firstName: string;
   lastName: string;
   role: "admin" | "user" | "super-admin";
-  posts: Post;
+  posts: Post[];
 }
 
 interface Post {

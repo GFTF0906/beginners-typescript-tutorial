@@ -13,12 +13,29 @@ interface Post {
   title: string;
 }
 
-/**
+/** Problem
  * How do we ensure that makeUser ALWAYS
  * returns a user?
- */
-const makeUser = () => {
-  return {};
+ * 
+  const makeUser = () => {
+    return {};
+  };
+*/
+
+// My solution
+// Added function return type as 'User', and created a new user object.
+
+const makeUser = (): User => {
+  return {
+    id: 1,
+    firstName: 'Gui',
+    lastName: 'Fontebasso',
+    role: 'admin',
+    posts: [{
+      id: 1,
+      title: 'TypeScript Challenges!'
+    }]
+  };
 };
 
 it("Should return a valid user", () => {
